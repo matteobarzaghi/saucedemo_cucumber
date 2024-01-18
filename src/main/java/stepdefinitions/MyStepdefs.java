@@ -1,10 +1,12 @@
 package stepdefinitions;
 
 import actions.LoginActions;
-import io.cucumber.java.en.And;
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertTrue;
 
 public class MyStepdefs {
     private final LoginActions loginActions = new LoginActions();
@@ -14,15 +16,18 @@ public class MyStepdefs {
         loginActions.landing();
     }
 
-    @When("I login as a standard user")
-    public void iLoginAsAStandardUser() {
+    @When("I login as a {string}")
+    public void iLoginAsA(String role) {
+        loginActions.login(role);
     }
 
-    @Then("I should be authorized")
-    public void iShouldBeAuthorized() {
-    }
-
-    @And("I should see the homepage")
+    @Then("I should see the homepage")
     public void iShouldSeeTheHomepage() {
+        assertTrue("Text not found!", loginActions.checkHomepage().contains("Swag Labs"));
+    }
+
+    @After
+    public void tearDown() {
+        loginActions.closeBrowser();
     }
 }

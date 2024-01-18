@@ -3,6 +3,7 @@ package actions;
 import driver.WebDriverSetup;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class LoginActions {
     private final WebDriver driver;
@@ -13,36 +14,24 @@ public class LoginActions {
 
     public void landing() {
         driver.get("https://www.saucedemo.com/");
-        try {
-            Thread.sleep(3000); // Waits for 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public void login(String role) {
 
         driver.findElement(By.cssSelector("*[data-test=\"username\"]")).click();
         driver.findElement(By.cssSelector("*[data-test=\"username\"]")).sendKeys(role);
-
-        try {
-            Thread.sleep(3000); // Waits for 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         driver.findElement(By.cssSelector("*[data-test=\"password\"]")).click();
         driver.findElement(By.cssSelector("*[data-test=\"password\"]")).sendKeys("secret_sauce");
-
-        try {
-            Thread.sleep(3000); // Waits for 3 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        driver.findElement(By.cssSelector("*[data-test=\"login-button\"]")).click();
 
     }
 
     public void closeBrowser() {
         WebDriverSetup.closeDriver();
+    }
+
+    public String checkHomepage() {
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[1]/div[2]/div"));
+        return element.getText();
     }
 }

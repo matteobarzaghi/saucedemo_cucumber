@@ -7,6 +7,6 @@ Feature: Login Functionality
     Then I should see the homepage
 
     Examples:
-      | role       |
-      | standard_user  |
-      | visual_user     |
+      | role          |
+      | standard_user |
+      | visual_user   |

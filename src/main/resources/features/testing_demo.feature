@@ -1,8 +1,10 @@
 Feature: Login Functionality
 
-  @smoke
-  Scenario Outline: Successful login with standard user
+  Background:
     Given I am on the login page
+
+  @smoke
+  Scenario Outline: Successful visualization of the homepage for each usertype
     When I login as a "<role>"
     Then I should see the homepage
 

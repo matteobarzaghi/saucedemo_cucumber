@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import actions.LoginActions;
 import io.cucumber.java.After;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -29,5 +30,10 @@ public class MyStepdefs {
     @After
     public void tearDown() {
         loginActions.closeBrowser();
+    }
+
+    @And("I see the label {string}")
+    public void iSeeTheLabel(String label) {
+        assertTrue("Text not found!", loginActions.checkLabel().contains(label));
     }
 }

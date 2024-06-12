@@ -7,6 +7,7 @@ Feature: Login Functionality
   Scenario Outline: Successful visualization of the homepage for each usertype
     When I login as a "<role>"
     Then I should see the homepage
+    And I see the label "Swag Labs"
 
     Examples:
       | role          |

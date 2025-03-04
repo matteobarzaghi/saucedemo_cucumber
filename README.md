@@ -1,7 +1,3 @@
-Here's an improved version of the README file for your GitHub project:
-
----
-
 # 🥒 **Saucedemo Cucumber Jenkins Project**
 
 ## 📖 **Project Overview**
@@ -98,7 +94,3 @@ Feel free to fork this repository and submit **pull requests**. All contribution
 
 ## 📄 **License**
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-This version provides a more professional and user-friendly presentation of the project, with clear sections and instructions. Let me know if you need any additional customization!

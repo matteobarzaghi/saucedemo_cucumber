@@ -4,15 +4,11 @@ import driver.WebDriverSetup;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class LoginActions {
+public class Actions {
     private final WebDriver driver;
 
-    public LoginActions() {
+    public Actions() {
         driver = WebDriverSetup.getDriver();
     }
 
@@ -30,17 +26,12 @@ public class LoginActions {
 
     }
 
-    public void closeBrowser() {
-        WebDriverSetup.closeDriver();
-    }
-
     public String checkHomepage() {
         WebElement element = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[1]/div[2]/div"));
         return element.getText();
     }
 
     public String checkLabel() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         WebElement element = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[1]/div[2]/div"));
         return element.getText();
     }
